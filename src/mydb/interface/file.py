@@ -1,12 +1,14 @@
 from abc import ABC, abstractmethod
 from os import SEEK_SET
 from pathlib import Path
-from typing import Literal, Self
+from typing import Literal, Self, Final
 
 OpenFileMode = Literal["rb", "ab", "r+b", "a+b", "wb", "w+b"]
 
 
 class File(ABC):
+    """Abstract base class for file storage implementations."""
+
     def __init__(self, tablespace: str, directory: Path | str, mode: OpenFileMode = "rb"):
         super().__init__()
 
@@ -26,8 +28,9 @@ class File(ABC):
         if not directory.is_dir():
             raise NotADirectoryError(f"Path exists but is not a directory: {directory}")
 
-        self._tablespace = tablespace
-        self._directory = directory
+        self._tablespace: Final[str] = tablespace
+        self._directory: Final[Path] = directory
+        self._mode: Final[OpenFileMode] = mode
 
     @abstractmethod
     def write(self, data: bytes) -> int:
