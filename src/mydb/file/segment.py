@@ -19,7 +19,7 @@ class Segment:
 
     _path: Path = field(init=False)
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         filename = f"{self.tablespace}_{self.index:010d}.dblog"
 
         object.__setattr__(self, "_path", self.directory / filename)
@@ -101,7 +101,7 @@ class SegmentedFile(File):
     def _activate_segment(self, index: int) -> BinaryIO:
         """Closes current file (if any) and opens the segment at the specified index (updates base offsets logic)."""
 
-        if not (0 <= index < len(self._segments)):
+        if not 0 <= index < len(self._segments):
             raise IndexError(f"Segment index {index} out of bounds.")
 
         if self._file and not self._file.closed:
@@ -110,8 +110,7 @@ class SegmentedFile(File):
         self._current_segment_index = index
         segment = self._segments[index]
 
-        self._file = open(segment.path, self._mode)  # pylint: disable=W1514
-
+        self._file = open(segment.path, self._mode)  # pylint: disable=W1514,R1732
         self._current_segment_base_offset = sum(s.size for s in self._segments[:index])
 
         return self._file
@@ -287,5 +286,5 @@ class SegmentedFile(File):
 
         return self
 
-    def __exit__(self, *_) -> None:
+    def __exit__(self, *_: object) -> None:
         self.close()

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from os import SEEK_SET
 from pathlib import Path
-from typing import Literal, Self, Final
+from typing import Final, Literal, Self
 
 OpenFileMode = Literal["rb", "ab", "r+b", "a+b", "wb", "w+b"]
 
