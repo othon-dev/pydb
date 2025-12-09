@@ -1,7 +1,7 @@
 from pydb import config, interface
 
 
-class InMemoryIndexError(config.IndexingError):
+class InMemoryIndexError(config.PyDBIndexError):
     """Base exception for in memory index errors."""
 
 

@@ -16,7 +16,7 @@ class AppendOnlyLogOperation(IntEnum):
     DELETE = 1
 
 
-class LogStorageError(config.StorageError):
+class LogStorageError(config.PyDBStorageError):
     """Base exception for log storage errors."""
 
 
@@ -241,7 +241,7 @@ class AppendOnlyLogStorage(interface.StorageEngine):
 
         try:
             offset = self._index.get(key)
-        except config.IndexingError:
+        except config.PyDBIndexError:
             raise LogKeyNotFoundError(key=key) from None
 
         with self._file:

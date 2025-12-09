@@ -2,13 +2,13 @@ class PyDBError(Exception):
     """Base exception for all PyDB errors."""
 
 
-class FileError(PyDBError):
+class PyDBFileError(PyDBError):
     """Exception raised for file-related errors in PyDB."""
 
 
-class IndexingError(PyDBError):
+class PyDBIndexError(PyDBError):
     """Exception raised for index-related errors in PyDB."""
 
 
-class StorageError(PyDBError):
+class PyDBStorageError(PyDBError):
     """Exception raised for storage-related errors in PyDB."""
