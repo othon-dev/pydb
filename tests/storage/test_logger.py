@@ -3,10 +3,10 @@ from pathlib import Path
 
 import pytest
 
-from mydb.file import MonolithicFile
-from mydb.index.in_memory import InMemoryIndex
-from mydb.interface import File
-from mydb.storage.logger import (
+from pydb.file import MonolithicFile
+from pydb.index.in_memory import InMemoryIndex
+from pydb.interface import File
+from pydb.storage.logger import (
     AppendOnlyLogHeader,
     AppendOnlyLogOperation,
     AppendOnlyLogPayload,

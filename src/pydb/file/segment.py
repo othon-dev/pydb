@@ -4,7 +4,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import BinaryIO, Final, List, Self
 
-from mydb.interface import File, OpenFileMode
+from pydb.interface import File, OpenFileMode
 
 SEGMENT_PATTERN = re.compile(r"^(?P<tablespace>[a-zA-Z0-9_-]+)_(?P<index>\d{10})\.dblog$")
 

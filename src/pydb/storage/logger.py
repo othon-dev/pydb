@@ -6,9 +6,9 @@ from os import SEEK_END
 from struct import Struct
 from typing import Self
 
-from mydb.core import MyDBError
-from mydb.index import InMemoryIndexKeyNotFoundError
-from mydb.interface import File, Index, StorageEngine
+from pydb.core import MyDBError
+from pydb.index import InMemoryIndexKeyNotFoundError
+from pydb.interface import File, Index, StorageEngine
 
 
 class AppendOnlyLogOperation(IntEnum):

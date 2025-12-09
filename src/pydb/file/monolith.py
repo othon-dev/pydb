@@ -2,7 +2,7 @@ from os import SEEK_SET
 from pathlib import Path
 from typing import BinaryIO, Final, Self
 
-from mydb.interface import File, OpenFileMode
+from pydb.interface import File, OpenFileMode
 
 
 class MonolithicFile(File):

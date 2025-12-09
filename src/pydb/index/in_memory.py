@@ -1,5 +1,5 @@
-from mydb.core import MyDBError
-from mydb.interface import Index
+from pydb.core import MyDBError
+from pydb.interface import Index
 
 
 class InMemoryIndexError(MyDBError):
