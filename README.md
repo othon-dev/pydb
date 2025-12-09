@@ -38,12 +38,6 @@ By exploring this project, you will gain understanding of:
 - Concurrency control mechanisms (locking, MVCC)
 - Write-ahead logging and recovery protocols
 
-## Technology Stack
-
-- **Language**: Python 3.11+
-- **Development Tools**: pylint, mypy, black, isort
-- **Testing**: pytest
-
 ## Documentation
 
 Additional documentation can be found in the `docs/` directory, including:
@@ -62,7 +56,6 @@ This is an educational project and contributions are welcome! Whether you're:
 - Sharing learning resources
 
 Please feel free to open issues or submit pull requests.
-
 
 ## License
 
