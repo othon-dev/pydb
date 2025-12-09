@@ -1,8 +1,10 @@
+from tempfile import mkdtemp
+
+from pydb.core import file, index, storage
+
+
 def main() -> None:
     """Main function to demonstrate the pydb key-value store."""
-    
-    from tempfile import mkdtemp
-    from pydb.core import file, index, storage
 
     print("TEMP DIR:", dirpath := mkdtemp(prefix="pydb"))
 
