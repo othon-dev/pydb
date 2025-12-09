@@ -1,41 +1,45 @@
-[project]
-name = "my-database"
-version = "2025.9.0"
-description = "Sistema de banco de dados simplificado, feito do zero para fins educativos."
-authors = [{ name = "github.com/sourceunion" }]
-license = { text = "MIT" }
+[tool.poetry]
+name = "pydb"
+description = "Custom-built DBMS from scratch, focusing on core concepts like persistence, indexing, query optimization, and transaction control for data management systems."
+version = "0.2.0"
 readme = "README.md"
-requires-python = ">=3.11"
-dependencies = []
+license = "LICENSE"
+authors = ["Othon Hugo <othonhugo@users.noreply.github.com>"]
+keywords = ["computer-science", "algorithm", "data-structures", "database", "dbms", "storage-engine", "persistence", "system-design"]
+classifiers = ["Development Status :: 4 - Beta", "Programming Language :: Python :: 3.10"]
+packages = [{ include = "pydb", from = "src" }]
 
-[dependency-groups]
-dev = [
-    "pylint (>=3.3.8,<4.0.0)",
-    "mypy (>=1.18.2,<2.0.0)",
-    "black (>=25.9.0,<26.0.0)",
-    "isort (>=6.1.0,<7.0.0)",
-    "pytest (>=8.4.2)",
-]
+[tool.poetry.urls]
+Homepage = "https://github.com/othonhugo/pydb/"
+Repository = "https://github.com/othonhugo/pydb.git"
+Issues = "https://github.com/othonhugo/pydb/issues"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+pylint = "^3.3.8"
+mypy = "^1.18.2"
+black = "^25.9.0"
+isort = "^6.1.0"
+pytest = "^8.3.4"
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.setuptools]
-package-dir = { "" = "src" }
-
-[tool.poetry]
-packages = [{ include = "mydb", from = "src" }]
-
 [tool.pylint.main]
-source-roots = "src/"
+source-roots = ["src"]
 max-line-length = 150
 recursive = true
 disable = [
+    "broad-exception-caught",
     "missing-module-docstring",
-    "missing-class-docstring",
-    "missing-function-docstring",
     "too-few-public-methods",
+    "too-many-arguments",
+    "too-many-locals",
+    "unused-argument",
+    "duplicate-code"
 ]
 ignore-paths = [".venv/", "build/", "tests/"]
 
@@ -65,7 +69,7 @@ exclude = '''
 
 [tool.isort]
 profile = "black"
-line_length = 79
+line_length = 150
 
 [tool.pytest.ini_options]
 addopts = "-raqsv --strict-markers --tb=no"
